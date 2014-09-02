@@ -1,0 +1,39 @@
+div(class='navigator')
+  - var maps = {'tech': '技术专区', 'life': '生活随笔', 'trip': '旅行日记'}
+  a(href='/#' + article.type, class='article-type')=maps[article.type]
+  span(class='direct-info') >>文章阅读 
+div(class='manage-article')
+  span(class='edit-article') 编辑
+  span(class='delete-article') 删除
+div(class='article-details')
+  h1(class='article-title')=article.title
+  div(class='article-date')
+    - var date = article.date
+    - var year = date.getFullYear();
+    - var month = date.getMonth() + 1 >= 10 ? date.getMonth() + 1 : '0' + (date.getMonth() + 1)
+    - var day = date.getDate() >= 10 ? date.getDate() : '0' + date.getDate()
+    span= year + '-' + month + '-' + day
+  if article.tags.length > 0
+    div(class='article-tags')
+      span 标签:
+      ul(class='tag-list')
+        each tag in article.tags
+          li(class='tag') ##{tag}#
+  div(class='article-content clear-float')!=article.contentHtml
+div(class='comment-area')
+  div(class='comment-edit-area')
+    div(class='comment-tips') 说说你看完这篇文章后的想法?
+    div(class='username-input')
+      span 昵称：
+      input(type='text', placeholder='16字以内...', maxlength='16')
+    div(class='email-input')
+      span 邮箱：
+      input(type='email', placeholder='输入合法的邮箱地址...')
+      span (不会公开您的邮箱信息~~)
+    div(class='comment-editor')
+      textarea(placeholder='140字以内...')
+      div(class='send-btn-wrapper')
+        button(class='send-btn', title='快捷键Ctrl+Enter') 发送
+        div(class='clear-float')
+  div(class='comment-display-area')
+    include comment

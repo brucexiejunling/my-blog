@@ -1,0 +1,30 @@
+{
+  "name": "blog",
+  "version": "0.0.1",
+  "author": "bruceTse",
+  "description": "Personal blog",
+  "scripts": {
+    "start": "node ./src/app.js"
+  },
+  "dependencies": {
+    "express": "~4.2.0",
+    "static-favicon": "~1.0.0",
+    "morgan": "~1.0.0",
+    "cookie-parser": "~1.0.1",
+    "body-parser": "~1.0.0",
+    "debug": "~0.7.4",
+    "jade": "~1.3.0",
+    "mongodb": "*",
+    "mongoskin": "*",
+    "express-session": "^1.7.0",
+    "cookie-session": "^1.0.2",
+    "connect-busboy": "0.0.1"
+  },
+  "devDependencies": {
+    "grunt": "^0.4.5",
+    "grunt-contrib-uglify": "^0.5.1",
+    "grunt-contrib-clean": "^0.6.0",
+    "grunt-contrib-copy": "^0.5.0",
+    "grunt-contrib-cssmin": "^0.10.0"
+  }
+}

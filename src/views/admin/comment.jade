@@ -1,0 +1,19 @@
+div(class='comment-title')
+  span 评论
+  span (
+  span(class='comment-num') #{article.comments.length}
+  span )
+div(class='comment-list-wrapper')
+  ul(class='comment-list')
+    each comment in article.comments
+      li(class='comment-item', id=comment._id)
+        span(class='username') @#{comment.username}
+        - var date = comment.date
+        - var year = date.getFullYear();
+        - var month = date.getMonth() + 1 >= 10 ? date.getMonth() + 1 : '0' + (date.getMonth() + 1)
+        - var day = date.getDate() >= 10 ? date.getDate() : '0' + date.getDate()
+        - var hour = date.getHours() >= 10 ? date.getHours() : '0' + date.getHours()
+        - var min = date.getMinutes() >= 10 ? date.getMinutes() : '0' + date.getMinutes()
+        span(class='comment-date')=year + '-' + month + '-' + day + ' ' + hour + ':' + min
+        p(class='comment-content')!=comment.content
+        span(class='delete-comment') 删除

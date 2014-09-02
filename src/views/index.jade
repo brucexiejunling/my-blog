@@ -1,0 +1,25 @@
+doctype html
+html
+  head
+    include config
+    meta(charset='utf-8')
+    title= 'BruceTse\'s Blog'
+    link(rel='stylesheet', href= cssPath + 'reset.css')
+    link(rel='stylesheet', href= cssPath + 'common.css')
+    link(rel='stylesheet', href= cssPath + 'player.css')
+    script(src= jsPath + 'jquery-1.9.1.min.js')
+  body
+    if role === 'admin'
+      include admin/header
+    else
+      include header
+    div(class='main')
+      div(class='loading-index')
+      div(class='container')
+      div(class='clear-float')
+    include footer
+    script
+      | window.autoPlay = true
+    script(src= jsPath + 'rotate.js')
+    script(src= jsPath + 'common.js')
+    script(src= jsPath + 'player.js')

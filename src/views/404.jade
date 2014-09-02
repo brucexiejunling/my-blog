@@ -1,0 +1,19 @@
+doctype html
+html
+  head
+    include config
+    meta(charset='utf-8')
+    title= 'BruceTse\'s Blog'
+    link(rel='stylesheet', href= cssPath + 'reset.css')
+    link(rel='stylesheet', href= cssPath + 'common.css')
+    link(rel='stylesheet', href= cssPath + 'player.css')
+    link(rel='stylesheet', href= cssPath + 'spec.css')
+    script(src= jsPath + 'jquery-1.9.1.min.js')
+  body
+    include header
+    div(class='main')
+      h1 这其实是一个‘404 not found’页面
+      img(src='/images/yoyo.png' class='yoyo')
+    script(src= jsPath + 'common.js')
+    include footer
+    script(src= jsPath + 'player.js')

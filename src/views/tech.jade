@@ -1,0 +1,16 @@
+div(class='left-part')
+  div(class='tag-cloud', id='rotate')
+    each tag in tags
+      a(href='')= tag
+  div(class='directory-info')
+    span 当前分类:
+    span(class='current-tag') 全部
+  div(class='article-num') 
+    span=total
+    |(篇)
+  div(class='title-page')
+    include title-list
+div(class='right-part')
+  div(class='article-page')
+    include article-list
+

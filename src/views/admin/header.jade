@@ -1,0 +1,21 @@
+div(class='header')
+  div(class='personal')
+    a(href='/')
+      img(class='my-avatar' src='/images/avatar.png')
+    span(class='my-name') 执梦
+    span(class='logout', title='退出管理员身份') (登出)
+  div(class='operation-btns')
+    a(class='write-article', href='/edit', title="写文章")
+      img(src='/images/write-article.jpg')
+    a(class='view-data', href='#', title="查看数据")
+      img(src='/images/view-data.png')
+  div(class='player-wrapper')
+    include ../player
+  div(class='page-slider')
+    div(class='page-title')
+      a
+      a(class='tech-page-title' href='#tech') 技术专区
+      a(class='life-page-title' href='#life') 生活随笔
+      a(class='trip-page-title' href='#trip') 旅行日记
+      a
+    div(class='slide-bar')

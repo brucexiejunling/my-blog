@@ -1,0 +1,22 @@
+doctype html
+html
+  head
+    include config
+    meta(charset='utf-8')
+    title= 'BruceTse\'s Blog'
+    link(rel='stylesheet', href= cssPath + 'reset.css')
+    link(rel='stylesheet', href= cssPath + 'common.css')
+    link(rel='stylesheet', href= cssPath + 'article.css')
+    link(rel='stylesheet', href= cssPath + 'player.css')
+    script(src= jsPath + 'jquery-1.9.1.min.js')
+  body
+    if role === 'visitor'
+      include header
+    else
+      include admin/header
+    div(class='aid-holder none')=aid
+    div(class='main')
+      div(class='loading-index')
+    include footer
+    script(src= jsPath + 'article.js')
+    script(src= jsPath + 'player.js')

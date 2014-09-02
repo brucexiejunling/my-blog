@@ -1,0 +1,27 @@
+- var itemsLimit = 15
+ul
+  - var i = 0
+  while i < itemsLimit && i < articles.length
+    - var article = articles[i++]
+    li 
+      a(href='/article/' + article._id)
+        span(class='article-title', title=article.title)=article.title
+        - var date = article.date
+        - var year = date.getFullYear();
+        - var month = date.getMonth() + 1 >= 10 ? date.getMonth() + 1 : '0' + (date.getMonth() + 1)
+        - var day = date.getDate() >= 10 ? date.getDate() : '0' + date.getDate()
+        span(class='article-date')= year + '-' + month + '-' + day
+      div(class='clear-float')
+
+div(class='title-page-switch page-switch')
+  if page > 1
+    span(class='pre-page') 上一页
+  else 
+    span
+  span(class='page-index')=page
+  if articles.length > itemsLimit
+    span(class='next-page') 下一页
+  else
+    span
+div(class='loading-title-list')
+  div(class='loading-tips')

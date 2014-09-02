@@ -1,0 +1,45 @@
+doctype html
+html
+  head
+    include ../config
+    meta(charset='utf-8')
+    title= 'BruceTse\'s Blog'
+    link(rel='stylesheet', href= cssPath + 'reset.css')
+    link(rel='stylesheet', href= cssPath + 'common.css')
+    link(rel='stylesheet', href= cssPath + 'edit.css')
+    link(rel='stylesheet', href= cssPath + 'player.css')
+    script(src= jsPath + 'jquery-1.9.1.min.js')
+  body
+    include header
+    div(class='main')
+      div(class='data-holder none')
+        span(class='aid')=article._id
+        span(class='title')=article.title
+        span(class='type')=article.type
+        span(class='tags')=article.tags.join(' ')
+      div(class='navigator')
+        span 记录生活的点点滴滴...
+      div(class='edit-area')
+        div(class='title-wrapper')
+          span 标题
+          input(type='text', name='title', placeholder='输入文章的标题...')
+        div(class='tags-wrapper')
+          span 标签
+          input(type='text', name='tags', placeholder='输入标签，多个标签以空格隔开...')
+        div(class='type-wrapper')
+          span 文章分类
+          select(class='article-type-select')
+            option(value='tech') 技术专区
+            option(value='life') 生活随笔
+            option(value='trip') 旅行日记
+        div(class='clear-float')
+        div(class='content-wrapper')
+          span(class='content-title') 正文
+          textarea(id='area2', class='none')!=article.contentHtml
+      div(class='end-buttons')
+        button(class='cancel') 取消
+        button(class='save') 保存
+    include ../footer
+    script(src= jsPath + 'nicEdit.js')
+    script(src= jsPath + 'edit.js')
+    script(src= jsPath + 'player.js')

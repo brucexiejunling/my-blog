@@ -1,0 +1,35 @@
+- var itemsLimit = 4
+ul(class='article-list')
+  - var i = 0
+  while i < itemsLimit && i < articles.length
+    - var article = articles[i++]
+    li(class='article-item')
+      h1(class='article-title')=article.title 
+      div(class='article-date')
+        - var date = article.date
+        - var year = date.getFullYear();
+        - var month = date.getMonth() + 1 >= 10 ? date.getMonth() + 1 : '0' + (date.getMonth() + 1)
+        - var day = date.getDate() >= 10 ? date.getDate() : '0' + date.getDate()
+        span= year + '-' + month + '-' + day
+      if article.tags.length > 0
+        div(class='article-tags')
+          span 标签:
+          ul(class='tag-list')
+            each tag in article.tags
+              li(class='tag') ##{tag}#
+      div(class='article-content clear-float')
+        p!=article.contentText.substring(0, 200) + '...'
+      div(class='read-article-btn')
+        a(href='/article/' + article._id) 阅读全文
+div(class='article-page-switch page-switch')
+  if page > 1
+    span(class='pre-page') 上一页
+  else 
+    span
+  span(class='page-num')=page
+  if articles.length > itemsLimit
+    span(class='next-page') 下一页
+  else
+    span
+div(class='loading-article-list')
+  div(class='loading-tips')

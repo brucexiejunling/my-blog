@@ -1,0 +1,2 @@
+/*! blog 2014-08-28 */
+function listenLoginEvent(){var a=13;$("input.user-id").keydown(function(b){var c=b||window.event;c.keyCode===a&&login()}),$("button.login").click(login)}function login(){$.post("/login",{userId:$("input.user-id").val()},function(a){""===a.error&&(location.href="/")})}$(function(){$("input.user-id").focus(),listenLoginEvent()});
